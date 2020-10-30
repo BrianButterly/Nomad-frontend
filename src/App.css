@@ -1,0 +1,19 @@
+.bg {
+  background-color: #264653;
+  /* background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png"); */
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  text-align: center;
+}
+
+img {
+  width: 120px;
+  padding: 10px;
+}
+
+button {
+  background-color: red;
+}
+
+img {
+  width: 80px;
+}
