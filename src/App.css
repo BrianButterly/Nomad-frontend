@@ -1,19 +1,144 @@
+
 .bg {
   background-color: #264653;
   /* background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png"); */
-  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  /* background-image: url("https://www.transparenttextures.com/patterns/stardust.png"); */
   text-align: center;
 }
 
 img {
-  width: 120px;
+  width: 100px;
   padding: 10px;
 }
 
-button {
-  background-color: red;
+.login {
+  width: 30%;
+  position: fixed; 
+  top: 25%;
+  left: 35%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-img {
-  width: 80px;
+.btn.btn-light {
+  margin: 2px;
+  background-color: #e76f51;
+  border: none;
+}
+
+.btn.btn-primary {
+  background-color: #e76f51;
+  border: none;
+}
+
+.card-deck {
+  width: 100%;
+  margin: 20px;
+}
+
+.card-img {
+  height: 50%;
+}
+
+.form {
+  color: white;
+  padding: 20px;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 40px;
+}
+
+body { 
+  animation: fadeInAnimation ease 3s; 
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards; 
+} 
+
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+  } 
+} 
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+div.transition-group {
+  position: relative;
+}
+
+section.route-section {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
+
+.grid-item {
+  border: 1px solid #e76f51;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: #FFFFFF;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  box-shadow:  #e76f51 1px 1px 1px 2px;
+  margin-top: 15px;
+}
+
+.grid-item:hover {
+  background-color: #f4a261;
+}
+
+/* .show-card {
+  border: 1px solid #e76f51;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  background-color: #FFFFFF;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  box-shadow:  #e76f51 1px 1px 1px 2px;
+  margin-top: 15px;
+}
+
+.show-card:hover {
+  background-color: #f4a261;
+} */
+
+img.card-img {
+  height: 250px;
+}
+
+.card-columns {
+  margin-top: 100px;
+}
+
+.nav-link {
+  margin-left: 120px;
+  margin-right: 120px;
 }
