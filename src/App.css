@@ -142,3 +142,12 @@ img.card-img {
   margin-left: 120px;
   margin-right: 120px;
 }
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}

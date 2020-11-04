@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { fetchUserSuccess } from '../actions/user'
-
+import { loginSuccess } from '../actions/auth'
 
 class Login extends React.Component {
 
@@ -37,6 +37,8 @@ class Login extends React.Component {
                       error: data.error
                     })
                   } else {
+                    localStorage.setItem('app_token', data.token)
+                    // this.props.loginSuccess(data)
                     this.props.fetchUserSuccess(data)
                     this.props.history.push('/home')
                 }
@@ -89,7 +91,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    fetchUserSuccess
+    fetchUserSuccess,
+    loginSuccess
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

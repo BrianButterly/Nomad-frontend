@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import NoMatch from './components/NoMatch'
 import Show from './components/Show'
 import ShowHost from './components/ShowHost'
+import Stays from './components/Stays'
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -29,6 +30,7 @@ const App = () => {
             <Switch>
               <Route path='/login' component={Login}/>
               <Route path='/home' component={Home}/>
+              <Route path='/stays' component={Stays}/>
               <Route path='/hosts/:id' component={ShowHost} />
               <Route path='/hosts' component={Hosts}/>
               <Route path='/destinations/:id' component={Show} />

@@ -1,12 +1,34 @@
 import React from 'react';
 import { Card, Button, CardColumns } from 'react-bootstrap'
-
+import { currentUser } from '../actions/auth'
+import { connect } from 'react-redux'
 
 class Home extends React.Component {
+
+    // componentDidMount(){
+    //     const token = localStorage.getItem('app_token')
+    //   if (!token){
+    //     this.props.history.push('/')
+    //   } else {
+    //     const reqObj = {
+    //       method: 'GET',
+    //       headers: {
+    //         'Authorization': `Bearer ${token}`
+    //       },
+    //     }
+    //     fetch('http://localhost:3000/api/v1/sessions/current_session', reqObj)
+    //     .then(resp => resp.json())
+    //     .then(data => {
+    //         console.log(data)
+    //         this.props.currentUser(data.user)
+    //     })
+    // }
+    // }
+
     render() {
         return (
             <div>
-                <h1>Previous Trip</h1>
+                <a href="/stays"><Button variant="light" >Previous Trips</Button></a>
                 <CardColumns>
                     <Card style={{ width: '30rem' }}>
                         <Card.Body>
@@ -42,6 +64,12 @@ class Home extends React.Component {
             </div>
         )
     }
+
 }
 
-export default Home;
+
+const mapDispatchToProps = {
+    currentUser
+}
+
+export default connect(null, mapDispatchToProps)(Home);
