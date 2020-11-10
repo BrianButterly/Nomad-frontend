@@ -3,43 +3,43 @@ import { Form, Button, Col } from 'react-bootstrap'
 
 class Signup extends React.Component {
 
-    // state = {
-    //     username: "",
-    //     password: "",
-    //     location: "",
-    //     error: null
-    // }
+    state = {
+        username: "",
+        password: "",
+        location: "",
+        error: null
+    }
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
+    handleSubmit = (e) => {
+        e.preventDefault()
 
-    //     const reqObj = {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(this.state)
-    //     }
+        const reqObj = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+        }
 
-    //     fetch('http://localhost:3000/users', reqObj)
-    //         .then(resp => resp.json())
-    //         .then(data => {
-    //             if (data.error) {
-    //                 this.setState({
-    //                   error: data.error
-    //                 })
-    //               } else {
-    //                 this.props.createUserSuccess(data)
-    //                 this.props.history.push('/home')
-    //             }
-    //         })
-    // }
+        fetch('http://localhost:3000/users', reqObj)
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.error) {
+                    this.setState({
+                      error: data.error
+                    })
+                  } else {
+                    this.props.createUserSuccess(data)
+                    this.props.history.push('/home')
+                }
+            })
+    }
 
-    // handleChange = (event) => {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
 
 
     render() {

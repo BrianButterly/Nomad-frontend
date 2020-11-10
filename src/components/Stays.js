@@ -1,27 +1,27 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux'
-import { fetchStaysSuccess } from '../actions/stays'
+import { fetchDestinationsSuccess } from '../actions/destinations'
 import { Link } from 'react-router-dom'
 
-class Stays extends React.Component {
+class Destinations extends React.Component {
 
     componentDidMount(){
-        fetch('http://localhost:3000/stays')
+        fetch('http://localhost:3000/destinations')
         .then(resp => resp.json())
-        .then(stays => {
-            this.props.fetchStaysSuccess(stays)
+        .then(destinations => {
+            this.props.fetchDestinationsSuccess(destinations)
         })
     }
-
+    
     render() {
-        const { stays } = this.props;
+        const { destinations } = this.props;
         return (
             <div>
-                {stays.map(stay => (
-                    <Link to={`/stays/${stay.id}`} style={{color: "black"}}>
+                {destinations.map(destination => (
+                    <Link to={`/destinations/${destination.id}`} style={{color: "black"}}>
                         <div class="grid-item" style={{color: "black"}}>
-                            <div key={stay.id}>
-                                <h3>{stay.destination_id}</h3>
+                            <div key={destination.id}>
+                                <h3>{destination.city}</h3>
                             </div>
                         </div>
                     </Link>
@@ -33,12 +33,12 @@ class Stays extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        stays: state.stays
+        destinations: state.destinations
     }
 }
 
 const mapDispatchToProps = {
-    fetchStaysSuccess    
+    fetchDestinationsSuccess    
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stays)
+export default connect(mapStateToProps, mapDispatchToProps)(Destinations)

@@ -1,9 +1,23 @@
 import React from 'react'
 import showHost from '../actions/hosts'
 import { connect } from 'react-redux'
+import StarRatingComponent from 'react-star-rating-component';
+
 
 class ShowHost extends React.Component {
 
+    constructor() {
+        super();
+    
+        this.state = {
+          rating: 1
+        };
+    }
+
+
+    onStarClick(nextValue, prevValue, name) {
+        this.setState({rating: nextValue});
+    }
 
     componentDidMount(){
         fetch(`http://localhost:3000/hosts/${this.props.match.params.id}`)
@@ -16,7 +30,7 @@ class ShowHost extends React.Component {
     renderHost = () => {
         const { name, age, bio, rating } = this.props.host
         return (
-            <div>
+            <div >
                 <h3>Name: {name}</h3>
                 <h1>Age: {age}</h1>
                 <h1>Bio: {bio}</h1>
@@ -25,10 +39,27 @@ class ShowHost extends React.Component {
         )
     }
 
+    renderRate() {
+        const { rating } = this.state;
+        return (                
+          <div>
+            <h2>Rate Host:</h2>
+            <StarRatingComponent 
+              name="rate1" 
+              starCount={5}
+              value={rating}
+              onStarClick={this.onStarClick.bind(this)}
+            />
+          </div>
+        );
+      }
+
    render() {
        return (
            <div className="show-card">
-               {this.renderHost()} 
+               {this.renderHost()}
+               <br/>
+               {this.renderRate()} 
            </div>
        )
    }

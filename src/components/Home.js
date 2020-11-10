@@ -1,34 +1,36 @@
 import React from 'react';
 import { Card, Button, CardColumns } from 'react-bootstrap'
-import { currentUser } from '../actions/auth'
 import { connect } from 'react-redux'
+import { currentUser } from '../actions/auth'
 
 class Home extends React.Component {
 
-    // componentDidMount(){
-    //     const token = localStorage.getItem('app_token')
-    //   if (!token){
-    //     this.props.history.push('/')
-    //   } else {
-    //     const reqObj = {
-    //       method: 'GET',
-    //       headers: {
-    //         'Authorization': `Bearer ${token}`
-    //       },
-    //     }
-    //     fetch('http://localhost:3000/api/v1/sessions/current_session', reqObj)
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         this.props.currentUser(data.user)
-    //     })
-    // }
-    // }
+    componentDidMount(){
+        const token = localStorage.getItem('app_token')
+    
+        if (!token){
+          this.props.history.push('/login')
+        } else {
+    
+          const reqObj = {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            },
+          }
+    
+          fetch('http://localhost:3000/api/v1/current_user', reqObj)
+          .then(resp => resp.json())
+          .then(data => {
+              this.props.currentUser(data.user)
+          })
+        }
+    }
 
     render() {
         return (
             <div>
-                <a href="/stays"><Button variant="light" >Previous Trips</Button></a>
+                <br/><a href="/thingsToDo"><Button className="things" variant="light" >Things to do</Button></a>
                 <CardColumns>
                     <Card style={{ width: '30rem' }}>
                         <Card.Body>
@@ -37,7 +39,7 @@ class Home extends React.Component {
                                 The 20 best ski resorts from around the world.
                             </Card.Text>
                         <Card.Img src="ski.jpg" />
-                            <Button href="https://www.cntraveller.com/gallery/best-ski-resorts-in-the-world" target="_blank" variant="light">Learn More</Button>
+                            <Button href="https://www.cntraveller.com/gallery/best-ski-resorts-in-the-world" variant="light">Learn More</Button>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '30rem' }}>
@@ -47,7 +49,7 @@ class Home extends React.Component {
                                 Some of the best and most beautiful dive sites in the world.
                             </Card.Text>
                         <Card.Img src="scuba.jpg" />
-                            <Button href="https://www.scubadiving.com/best-scuba-diving-places" target="_blank" variant="light">Learn More</Button>
+                            <Button href="https://www.scubadiving.com/best-scuba-diving-places" variant="light">Learn More</Button>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '30rem' }}>
@@ -57,7 +59,7 @@ class Home extends React.Component {
                                 Witness some of the most beautiful sunsets in the world.e.
                             </Card.Text>
                         <Card.Img src="sunset.jpeg" />
-                            <Button href="https://www.roughguides.com/gallery/the-worlds-best-sunset-spots/" target="_blank" variant="light">Learn More</Button>
+                            <Button href="https://www.roughguides.com/gallery/the-worlds-best-sunset-spots/" variant="light">Learn More</Button>
                         </Card.Body>
                     </Card>
                 </CardColumns>
@@ -67,9 +69,14 @@ class Home extends React.Component {
 
 }
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
 
 const mapDispatchToProps = {
     currentUser
 }
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

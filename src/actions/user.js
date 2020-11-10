@@ -4,3 +4,10 @@ export const fetchUserSuccess = (user) => {
         user: user
     }
 }
+
+export const createUserSuccess = (user) => {
+    return {
+        type: 'CREATE_USER_SUCCESS',
+        user: user
+    }
+}

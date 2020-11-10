@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { fetchUserSuccess } from '../actions/user'
 import { loginSuccess } from '../actions/auth'
 
 class Login extends React.Component {
@@ -38,8 +37,8 @@ class Login extends React.Component {
                     })
                   } else {
                     localStorage.setItem('app_token', data.token)
-                    // this.props.loginSuccess(data)
-                    this.props.fetchUserSuccess(data)
+
+                    this.props.loginSuccess(data.user)
                     this.props.history.push('/home')
                 }
             })
@@ -47,53 +46,25 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>Sign in</h3>
-                { this.state.error && <h4 style={{ color: 'red'}}>{this.state.error}</h4> }
+            <div className="login">
+                <h3>Current user</h3>
+                { this.state.error && <h3 style={{ color: '#FF2800'}}>{this.state.error}</h3> }
                 <form onSubmit={this.handleSubmit}>
                 <input name={'username'} onChange={this.handleChange} value={this.state.username} placeholder={'username'} />
-                <input type={'password'} name={'password'} onChange={this.handleChange} value={this.state.password} placeholder={'password'} />
-                <input className="btn btn-light" type='submit' value='login' />
-                <a href="/signup"><Button variant="light" >Signup</Button></a>
+                <input type={'password'} name={'password'} onChange={this.handleChange} value={this.state.password} placeholder={'password'} /><br/>
+                <input style={{color: "#343A40"}} className="btn btn-light" type='submit' value='login' /><br/>
+                <div className="line"/>
+                <h4 className="newuser" >New user</h4>
+                <a href="/signup"><Button style={{color: "#343A40"}} variant="light" >Signup</Button></a>
                 </form>
             </div>
-            // <div className="login">
-            //     <Form>
-            //         <Form.Group controlId="formBasicEmail">
-            //             <Form.Label>Username</Form.Label>
-            //             <Form.Control 
-            //             onChange={this.handleChange}
-            //             type="username" 
-            //             placeholder="Username" 
-            //             />
-            //         </Form.Group>
-            //         <Form.Group controlId="formBasicPassword">
-            //             <Form.Label>Password</Form.Label>
-            //             <Form.Control
-            //             onChange={this.handleChange}
-            //             type="password" 
-            //             placeholder="Password" 
-            //             />
-            //         </Form.Group>
-            //         <Button onSubmit={this.handleSubmit} variant="light" >Login</Button>
-            //         <a href="/signup"><Button variant="light" >Signup</Button></a>
-            //     </Form>
-            // </div>
         )
     }
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-      auth: state.auth
-    }
-}
-
 const mapDispatchToProps = {
-    fetchUserSuccess,
     loginSuccess
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login)
   

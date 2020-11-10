@@ -1,3 +1,6 @@
+.App {
+  font-family: 'Alegreya', serif;
+}
 
 .bg {
   background-color: #264653;
@@ -16,9 +19,24 @@ img {
   position: fixed; 
   top: 25%;
   left: 35%;
-  background-color: white;
+  background-color: #2a9d9081;
   padding: 10px;
   border-radius: 10px;
+  box-shadow: #e9c46a 0px 0px 10px 2px;
+  animation: mymove 5s;
+}
+
+.things {
+  animation: mymove 5s;
+  box-shadow: #e9c46a 0px 0px 10px 2px;
+}
+
+input.btn.btn-light {
+  margin: 10px 2px 20px 2px;
+}
+
+@keyframes mymove {
+  50% {box-shadow: 1px 1px 30px 10px #e9c46a;}
 }
 
 .btn.btn-light {
@@ -30,6 +48,17 @@ img {
 .btn.btn-primary {
   background-color: #e76f51;
   border: none;
+}
+
+.line {
+  border: 1px solid #f7d275;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+}
+
+.newuser {
+  margin-top: 20px;
 }
 
 .card-deck {
@@ -112,13 +141,11 @@ section.route-section {
   background-color: #f4a261;
 }
 
-/* .show-card {
+.show-card {
   border: 1px solid #e76f51;
-  padding: 20px;
-  font-size: 30px;
   text-align: center;
   background-color: #FFFFFF;
-  width: 500px;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
@@ -126,7 +153,7 @@ section.route-section {
   margin-top: 15px;
 }
 
-.show-card:hover {
+/* .show-card:hover {
   background-color: #f4a261;
 } */
 
@@ -139,8 +166,7 @@ img.card-img {
 }
 
 .nav-link {
-  margin-left: 120px;
-  margin-right: 120px;
+  min-width: 10%;
 }
 
 input[type="radio"] {
@@ -150,4 +176,34 @@ input[type="radio"] {
 .star {
   cursor: pointer;
   transition: color 200ms;
+}
+
+textArea {
+  height: 200px;
+  width: 400px;
+}
+
+.drpbtn {
+  margin-left: 70%;
+}
+
+.line2 {
+  border: 1px dashed #f4a261;
+  position: absolute;
+  left: 40%;
+  right: 40%;
+}
+
+.host-card {
+  border: 1px solid #e76f51;
+  background-color: #FFFFFF;
+  width: 240px;
+  border-radius: 5px;
+  box-shadow:  #e76f51 1px 1px 1px 2px;
+  margin-top: 20px;
+  margin-left: 20px
+}
+
+.line3 {
+  border: #e76f51 solid 2px;
 }
